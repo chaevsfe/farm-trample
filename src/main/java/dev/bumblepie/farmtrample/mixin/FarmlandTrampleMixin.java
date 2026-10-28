@@ -14,7 +14,7 @@ public abstract class FarmlandTrampleMixin {
 
     @Redirect(method = "fallOn",
         at = @At(value = "INVOKE",
-            target = "Lnet/minecraft/world/level/block/FarmlandBlock;turnToBaseBlock(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V"))
-    private void bumblepie$noTrample(FarmlandBlock block, Entity entity, BlockState state, Level level, BlockPos pos) {
+            target = "Lnet/minecraft/world/level/block/FarmlandBlock;turnToDirt(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V"))
+    private void bumblepie$noTrample(Entity entity, BlockState state, Level level, BlockPos pos) {
     }
 }
