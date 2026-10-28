@@ -1,0 +1,46 @@
+// 26.2 Fabric toolchain (see history/2026-upgrade/PORTING-NOTES.md):
+//  - plugin id is net.fabricmc.fabric-loom (Loom 1.17.x)
+//  - NO mappings line: Yarn is dead for 26.x, official Mojang names are the default
+//  - plain `implementation` for mod deps (nothing is remapped any more)
+//  - the artifact comes out of the plain `jar` task, under build/libs/
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.17.20'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabricmc.net/' }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    // Brings sponge-mixin (and MixinExtras) in transitively for compilation.
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    // No fabric-api: two mixins, nothing else.
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25) // 26.2 requires Java 25
+    }
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') {
+        expand 'version': project.version
+    }
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.base.archivesName.get()}" }
+	}
+}

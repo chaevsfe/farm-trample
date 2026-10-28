@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "bumblepie_farm_trample",
+  "version": "${version}",
+  "name": "BumblePie Farm Trample",
+  "description": "Farmland is never trampled, by players or mobs. Server-side only.",
+  "authors": [
+    "BumblePie"
+  ],
+  "license": "LGPL-3.0",
+  "environment": "*",
+  "mixins": [
+    {
+      "config": "bumblepie_farm_trample.mixins.json"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.20.0",
+    "minecraft": "~26.3"
+  },
+  "contact": {
+    "homepage": "https://github.com/chaevsfe/farm-trample",
+    "sources": "https://github.com/chaevsfe/farm-trample",
+    "issues": "https://github.com/chaevsfe/farm-trample/issues"
+  }
+}
