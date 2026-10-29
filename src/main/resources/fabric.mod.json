@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "bumblepie_farm_trample",
   "version": "${version}",
-  "name": "BumblePie Farm Trample",
+  "name": "Farm Trample",
   "description": "Farmland is never trampled, by players or mobs. Server-side only.",
   "authors": [
-    "BumblePie"
+    "chaevsfe"
   ],
   "license": "LGPL-3.0",
   "environment": "*",
